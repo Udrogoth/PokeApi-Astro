@@ -1,0 +1,36 @@
+---
+import { fade } from 'astro:transitions';
+interface Props {
+    name: string;
+    url: string;
+    isBig?: boolean;
+}
+const { url, name, isBig } = Astro.props;
+
+const id = url.split("/").at(-2);
+const urlImg = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
+---
+
+<a
+    href=`/pokemons/${name}`
+    class:list={[
+        "rounded  flex flex-col justify-center items-center p-2",
+        { border: !isBig },
+    ]}
+>
+    <!-- <img class:list={["w-26 h-26 ",{"w-16 h-16":!isBig}, ]} src={urlImg} alt="name" /> -->
+    <img
+        transition:name={`${name}-image`}
+     
+        class:list={[
+            {
+                "w-26 h-26 ": isBig,
+                "w-20 h-20": !isBig,
+            },
+        ]}
+        src={urlImg}
+        alt={name}
+    />
+
+    <span class:list={["capitalize", { "text-3xl": isBig }]}>#{id} {name}</span>
+</a>
