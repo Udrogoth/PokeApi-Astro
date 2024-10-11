@@ -1,10 +1,10 @@
 import { defineConfig } from 'astro/config';
-
 import tailwind from "@astrojs/tailwind";
+import icon from "astro-icon";
+
+import solidJs from "@astrojs/solid-js";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind()],
-  site: 'https://astronaut.github.io',
-  base: 'mi-repo',
+  integrations: [tailwind(), icon(), solidJs()]
 });

@@ -1,0 +1,43 @@
+---
+interface Props {
+    page: any;
+}
+const { page } = Astro.props;
+---
+
+<section class="mt-5 flex justify-between">
+    <div class="flex float-start">
+        <a
+            class:list={[
+                "btn",
+                {
+                    disabled: !page.url.prev,
+                },
+            ]}
+            ,
+            href={page.url.prev}>Anterior</a
+        >
+
+        <a 
+        class:list={[
+            "btn",
+            {
+                disabled: !page.url.next,
+            }
+            ]} 
+        href={page.url.next}>Siguiente</a>
+    </div>
+
+    <div class="flex">
+        <span class="">pagina {page.currentPage}</span>
+    </div>
+</section>
+
+<style>
+    .btn {
+        @apply bg-blue-600 ml-2 p-2 text-yellow-50 rounded-md;
+    }
+    .disabled {
+        @apply bg-slate-100 ml-2 p-2 text-blue-950 rounded-md;
+    }
+</style>

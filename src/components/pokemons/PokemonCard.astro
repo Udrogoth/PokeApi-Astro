@@ -1,5 +1,4 @@
 ---
-import { fade } from 'astro:transitions';
 interface Props {
     name: string;
     url: string;
@@ -11,6 +10,7 @@ const id = url.split("/").at(-2);
 const urlImg = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
 ---
 
+<!-- href=`/pokemons/${name}` -->
 <a
     href=`/pokemons/${name}`
     class:list={[

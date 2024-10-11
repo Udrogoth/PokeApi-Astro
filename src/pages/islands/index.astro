@@ -1,0 +1,20 @@
+---
+import { Counter } from "@components/counter"
+import Title from "@components/shared/Title.astro"
+import Main from "src/layouts/main.astro"
+
+const conterValue = 30;
+---
+
+<Main title="Favoritos">
+    <Title>Islas</Title>
+
+<div class="h-[2000px] bg-red-200"></div>
+    <Counter
+    transition:persist="counter"
+    initValue={conterValue}
+    client:visible
+    >
+<Title>Counter Island</Title>
+</Counter >
+</Main>
